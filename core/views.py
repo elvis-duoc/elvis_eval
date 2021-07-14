@@ -1,3 +1,6 @@
+from django import forms
+from core.forms import ContactoForm, LoginForm
+from core.models import Login, Contacto
 from django.shortcuts import render
 
 # Create your views here.
@@ -20,11 +23,27 @@ def fuente(request):
 
 
 def contacto(request):
-    return render(request, 'core/contacto.html')
+    datos = {
+        'form1': ContactoForm
+    }
+    if request.method == "POST":
+        formulario = ContactoForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            datos['mensaje'] = "Mensaje Enviado Correctamente"
+    return render(request, 'core/contacto.html', datos)
 
 
 def registro(request):
-    return render(request, 'core/registro.html')
+    datos = {
+        'form': LoginForm
+    }
+    if request.method == "POST":
+        formulario = LoginForm(request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            datos['estado'] = "Datos Guardados con EXITO"
+    return render(request, 'core/registro.html', datos)
 
 
 def iniciosesion(request):

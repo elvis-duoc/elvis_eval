@@ -50,34 +50,29 @@
     <!-- inicio formulario -->
     <section id="subsection-contact">   
         <section class="border p-4 d-flex justify-content-center mb-4">
-          <form style="width: 26rem">
-            <h4 class="mt-5">Formulario de Contacto</h4>
+          <form method="POST" action="" id="formulario">
+            {% csrf_token %}
+            <h1>Formulario de Contacto</h1>
             <p>Para enviarnos un mensaje, rellene el siguiente formulario.</p>
   
             <!-- Ingrese Nombre -->
             <div class="form-outline mb-4">
-              <input type="text" id="form4Example1" class="form-control">
-              <label class="form-label" for="form4Example1" style="margin-left: 0px;">Nombre</label>
-            <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 42.4px;"></div><div class="form-notch-trailing"></div></div></div>
-
-            <!-- Ingrese Apellido -->
-            <div class="form-outline mb-4">
-                <input type="text" id="form4Example1" class="form-control">
-                <label class="form-label" for="form4Example1" style="margin-left: 0px;">Apellido</label>
-              <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 42.4px;"></div><div class="form-notch-trailing"></div></div></div>
-
+              <label for="nombre">Ingrese Nombre</label>
+              {{form1.nombre}}
+              <br />  
+            </div>
             <!-- Ingrese Correo -->
             <div class="form-outline mb-4">
-              <input type="email" id="form4Example2" class="form-control">
-              <label class="form-label" for="form4Example2" style="margin-left: 0px;">Correo Electrónico</label>
-            <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 88.8px;"></div><div class="form-notch-trailing"></div></div></div>
-  
+              <label for="nombre">Ingrese Correo Electrónico</label>
+              {{form1.email}}
+              <br />
+            </div>
             <!-- Mensaje -->
             <div class="form-outline mb-4">
-              <textarea class="form-control" id="form4Example3" rows="4"></textarea>
-              <label class="form-label" for="form4Example3" style="margin-left: 0px;">Mensaje</label>
-            <div class="form-notch"><div class="form-notch-leading" style="width: 9px;"></div><div class="form-notch-middle" style="width: 60px;"></div><div class="form-notch-trailing"></div></div></div>
-  
+              <label for="nombre">Escriba su Mensaje</label>
+              {{form1.mensaje}}
+            <br />
+            </div>
             <!-- Verificacion -->
             <div class="form-check d-flex justify-content-center mb-4">
               <input class="form-check-input me-2" type="checkbox" value="" id="form4Example4" checked="">
@@ -87,7 +82,11 @@
             </div>
   
             <!-- Boton Enviar -->
-            <button type="button" class="btn btn-primary btn-block mb-4">Enviar</button>
+            <button type="submit" class= "btn btn-primary">Enviar Mensaje</button>
+            <br />
+            <br />  
+            <div class="alert-alert-success" role="alert">{{mensaje}}</div>
+            <br />
           </form>
         </section>
     </section>

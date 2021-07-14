@@ -48,27 +48,28 @@
   
   <!-- inicio carrousel -->
   <div class="container">
+    <br />
       <h1>Registrarse</h1>
-      <form>
-          <div class="form-group">
-              <label for="nombre">Ingrese nombre</label>
-              <input type="text" class="form-control" id="nombre" >
-          </div>
-              <div class="form-group">
-              <label for="email">Ingrese email</label>
-              <input type="text" class="form-control" id="email" >
-          </div>
-              <div class="form-group">
-              <label for="email">Ingrese contraseña</label>
-              <input type="text" class="form-control" id="contraseña" >
-          </div>
-              <div class="form-group">
-              <label for="email">Repita Contraseña</label>
-              <input type="text" class="form-control" id="repita" >
-          <p> No soy un robot</p>
+      <br />
+    <form method="POST" action="" id="formulario">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="nombre">Ingrese Nombre de Usuario</label>
+          {{form.usuario}}
+        </div>
+        <br />
+        <div class="form-group">
+          <label for="nombre">Ingrese Contraseña</label>
+          {{form.password}}
+        </div>
+        <br />
+              
       <button type="submit" class= "btn btn-primary">Registrarse</button>
       </form>
-    </div>
+      <br />
+      <div class="alert-alert-success" role="alert">{{estado}}</div>
+  </div>
+
 
 
   <!-- inicio footer -->    
